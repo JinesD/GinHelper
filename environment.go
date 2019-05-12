@@ -4,9 +4,10 @@ import (
 	"github.com/go-ini/ini"
 )
 
-func EnvLoader(file string) (*ini.File, error) {
+func EnvLoader() (*ini.File, error) {
+	envFile := RootPath() + "env.ini"
 
-	loader, err := ini.Load(file)
+	loader, err := ini.Load(envFile)
 	if err != nil {
 		return nil, err
 	}
